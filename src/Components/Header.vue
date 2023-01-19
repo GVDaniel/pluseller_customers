@@ -15,9 +15,9 @@
       </a>
       <!--Header navigation-->
       <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
-        <router-link class="pl-5" to="/">Home</router-link>
-        <router-link class="px-5" to="/products">Products</router-link>
-        <router-link to="/contact">Contact us</router-link>
+        <router-link class="pl-5" to="/">Inicio</router-link>
+        <router-link class="px-5" to="/products">Productos</router-link>
+        <router-link to="/contact">Contacto</router-link>
       </span>
 
       <p class="navbar-item ml-auto">
@@ -25,13 +25,14 @@
           <input type="search" class="search">
         </div>
         <div class="user">
-          <h5 style="cursor: pointer" data-toggle="modal" data-target="#userModal">Sign In</h5>
+          <h6 style="cursor: pointer" data-toggle="modal" data-target="#userModal">Ingresar</h6>
         </div>
 
         <div class="bag" @click="openCart">
-            <img class="pb-1" src="@/assets/cart.svg">
+            <img style="height:25px" class="pb-1" src="@/assets/cart.svg">
             <span class="mb-3" v-if="this.bagItemscount > 0">{{ bagItemscount }}</span>
         </div>
+      </p>
     </nav>
     <!--User Modal-->
     <div class="modal fade" id="userModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

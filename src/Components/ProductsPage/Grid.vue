@@ -4,7 +4,7 @@
       <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
           <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por
-            <span style="color:#f2be00;">{{ sortButton }}</span>
+            <span style="color:#ff6464;">{{ sortButton }}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" @click="sortDate">Fecha</a>
@@ -18,9 +18,9 @@
           <div class="dropdown">
             <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATAGORIES</button>
             <div class="dropdown-menu" aria-labelledby="MenuLink">
-              <a class="dropdown-item" @click="sortI('table')">Tables</a>
-              <a class="dropdown-item" @click="sortI('lamp')">Lamps</a>
-              <a class="dropdown-item" @click="sortI('chair')">Chairs</a>
+              <a class="dropdown-item" @click="sortI('table')">Mesas</a>
+              <a class="dropdown-item" @click="sortI('lamp')">Lamparas</a>
+              <a class="dropdown-item" @click="sortI('chair')">Sillas</a>
               <a class="dropdown-item" @click="sortI('sofa')">Sofas</a>
               <div class="dropdown-divider"></div>
               <div class="pl-3">
@@ -30,7 +30,7 @@
                 <span class="circle" style="background-color:red" @click="sortI('red')" />
               </div>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" @click="reSet">Reset</a>
+              <a class="dropdown-item" @click="reSet">Limpiar</a>
             </div>
           </div>
         </div>
@@ -42,12 +42,12 @@
               <div class="search-title">
                 <h4>Categorías  +</h4>
                 <br>
-                <h6 @click="sortI('table')">Tables</h6>
-                <h6 @click="sortI('lamp')">Lamps</h6>
-                <h6 @click="sortI('chair')">Chairs</h6>
+                <h6 @click="sortI('table')">Mesas</h6>
+                <h6 @click="sortI('lamp')">Lamparas</h6>
+                <h6 @click="sortI('chair')">Sillas</h6>
                 <h6 @click="sortI('sofa')">Sofas</h6>
                 <br><br><br>
-                <h4 class="search-title">Filter by  +</h4>
+                <h4 class="search-title">Filtrar por  +</h4>
                 <br>
                 <div class="co">
                   <h5>Color</h5>
@@ -57,7 +57,7 @@
                   <span class="circle" style="background-color:red" @click="sortI('red')"></span>
                 </div>
                 <br><br>
-                <h5>Price Range</h5>
+                <h5>Rango de Precio</h5>
                 <slider @clicked="valueSlider"/>
               </div>
 

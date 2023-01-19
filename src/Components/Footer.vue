@@ -1,34 +1,33 @@
 <template>
-  <footer class="footer_area">
+  <footer class="footer_area container">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-3 col-xl-2 col-lg-3 col-md-3 col-sm-3">
+        <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-3">
           <div class="footer-widget">
             <div class="footer-title">Navigate</div>
             <ul class="list-unstyled">
-              <router-link to="/"><li>About Us</li></router-link>
+              <router-link to="/"><li>Acerca</li></router-link>
               <router-link to="/"><li>Blog</li></router-link>
-              <router-link to="/"><li>Contact Us</li></router-link>
-              <router-link to="/"><li>Sitemap</li></router-link>
+              <router-link to="/"><li>Contacto</li></router-link>
             </ul>
           </div>
         </div>
 
-        <div class="col-3 col-xl-2 col-lg-3 col-md-3 col-sm-3">
+        <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-3">
           <div class="footer-widget">
-            <div class="footer-title">Collection</div>
+            <div class="footer-title">Colección</div>
             <ul class="list-unstyled">
-              <router-link to="/products"><li>New arrivals</li></router-link>
-              <router-link to="/products"><li>Featured</li></router-link>
-              <router-link to="/products"><li>Catalog</li></router-link>
-              <router-link to="/products"><li>Brands</li></router-link>
+              <router-link to="/products"><li>Nuevo</li></router-link>
+              <router-link to="/products"><li>Recomen</li></router-link>
+              <router-link to="/products"><li>Catálogo</li></router-link>
+              <router-link to="/products"><li>Marcas</li></router-link>
             </ul>
           </div>
         </div>
 
-        <div class="col-3 col-xl-2 col-lg-3 col-md-3 col-sm-3">
+        <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-3">
           <div class="footer-widget">
-            <div class="footer-title">Catagories</div>
+            <div class="footer-title">Categorías</div>
             <ul class="list-unstyled">
               <router-link to="/products"><li>Tables</li></router-link>
               <router-link to="/products"><li>Lamps</li></router-link>

@@ -32,6 +32,6 @@ export default {
 
 .breadcrumb>li {
   text-decoration: none !important;
-  color: #f2be00 !important;
+  color: #ff6464 !important;
 }
 </style>

@@ -2,12 +2,13 @@
   <div>
     <div :class="cClass">
       <div class="cart-menu">
-        <h1 class="text-center">Cart</h1>
+        <h6 class="text-center pt-2"><i class="fa fa-cart"></i> Carrito</h6>
+        <div @click="cartON">X Cerrar</div>
         <hr>
 
         <transition name="fade">
           <div v-if="this.cartContent.length === 0" class="text-center font-italic">
-            Your cart is empty, try to Add stuff.
+            Tu carrito esta vacio, selecciona algún producto.
           </div>
         </transition>
 
@@ -21,7 +22,7 @@
               <h6>{{ thing.price }}</h6>
             </div>
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
-              <span class="remove-btn" @click="removeThing(thing.id)">remove</span>
+              <span class="remove-btn" @click="removeThing(thing.id)">Eliminar</span>
             </div>
           </div>
         </transition-group >
@@ -38,7 +39,7 @@
       </div>
     </div>
 
-    <div :class="modalClass" @click="cartON"></div>
+    <div :class="modalClass" @click="cartON">Cerrar</div>
   </div>
 </template>
 
@@ -110,7 +111,7 @@ export default {
   right: 0;
   width: 360px;
   height: 100%;
-  background: #303e49;
+  background: #333333;
   overflow-y: auto;
   z-index:1051;
   -webkit-overflow-scrolling: touch;
