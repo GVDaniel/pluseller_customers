@@ -1,9 +1,24 @@
 <template>
   <div class="container">
+    {{ shop.name }}
     <transition-group name="fade" class="row" tag="div">
-      <div v-for="item in CardArray" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
+      <div v-for="item in products" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 pb-3" :key="item.id">
           <div class="card">
-            <img class="card-img-top" :src="item.img" alt="Card image cap">
+            <img
+              v-if="item.images && item.images.length > 0"
+              class="card-img-top"
+              :src="'http://api.negociaar.com/assets/img/products/' + item.images[0].name"
+              alt="pluseller.blank.png"
+            />
+            <img
+              v-else
+              class="card-img-top"
+              :src="
+                apiUrl + 'http://api.negociaar.com/assets/img/products/blank_product.png'
+              "
+              alt="blank_product.png"
+            />
+            <!-- <img class="card-img-top" :src="item.img" alt="Card image cap"> -->
             <div class="overlay">
               <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Add +</button>
               <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
@@ -20,17 +35,41 @@
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex";
+
 export default {
   props: ['CardArray'],
   name: 'Card',
+  data() {
+    return {
+      items: [],
+    }
+  },
+  computed: {
+    ...mapState('shops', [
+      'shop',
+      'products'
+    ]),
+  },
+  created() {
+    console.log('productos', this.shop)
+  },
   methods: {
+    ...mapActions('shops', [
+      'getShop'
+    ]),
     addtoCart(it) {
      this.$store.commit('inCart', it)
     },
     sendInfo(it) {
      this.$store.commit('addtoInfo', it)
     }
-  }
+  },
+  // watch: {
+  //   "shop"(data) {
+  //     this.items = data
+  //   }
+  // }
 }
 </script>
 

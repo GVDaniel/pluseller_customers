@@ -2,7 +2,7 @@
   <div class="container-flex">
     <nav class="navbar navbar-light">
       <div class="dropdown d-xl-none d-lg-none mr-auto">
-        <img src="https://png.icons8.com/windows/32/000000/menu.png" data-toggle="dropdown" data-target="#navd" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-bars" data-toggle="dropdown" data-target="#navd" aria-haspopup="true" aria-expanded="false"></i>
         <div class="dropdown-menu hb" aria-labelledby="navd">
           <router-link class="dropdown-item" to="/">Inicio</router-link>
           <router-link class="dropdown-item" to="/products">Productos</router-link>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="bag" @click="openCart">
-            <img style="height:25px" class="pb-1" src="@/assets/cart.svg">
+            <i class="fa-solid fa-cart-shopping"></i>
             <span class="mb-3" v-if="this.bagItemscount > 0">{{ bagItemscount }}</span>
         </div>
       </p>
@@ -162,7 +162,7 @@ form .btn-xl.btn-success.mt-3 {
 }
 
 .bag span {
-    background-color: #6394F8;
+    background-color: #ff6464;
     border-radius: 10px;
     color: white;
     position: absolute;

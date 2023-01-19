@@ -1,6 +1,6 @@
 <template>
   <div>
-  <h2 class="pt-3 text-center">Baldar Gastrobar</h2>
+  <h6 class="pt-3 text-center">Baldar Gastrobar</h6>
   <nav class="row justify-content-center" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">

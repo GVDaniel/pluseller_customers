@@ -37,15 +37,19 @@
       </div>
       <div class="row justify-content-center">
         <div class="col col-xl-3 col-lg-3 d-none d-lg-block d-xl-block">
+          <img
+                style="width:100%;"
+                class="float-center img-thumbnail"
+                :src="'http://127.0.0.1:8000' + '/storage/assets/img/brand/profile/' + '11598576314.jpeg'"
+              />
           <div class="card-selector">
             <div class="card-body p-5">
               <div class="search-title">
-                <h4>Categorías  +</h4>
+                <h4>Categorías</h4>
                 <br>
-                <h6 @click="sortI('table')">Mesas</h6>
-                <h6 @click="sortI('lamp')">Lamparas</h6>
-                <h6 @click="sortI('chair')">Sillas</h6>
-                <h6 @click="sortI('sofa')">Sofas</h6>
+                <div v-for="category in shop.categories" v-bind:key="category.id">
+                  <h6 @click="sortI(category.name)">{{ category.name }}</h6>
+                </div>
                 <br><br><br>
                 <h4 class="search-title">Filtrar por  +</h4>
                 <br>
@@ -65,11 +69,11 @@
           </div>
         </div>
         <div class="row col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 text-center">
-          <div v-if="this.cards == 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h4 style="margin-left:9rem;margin-right:9rem">Sorry, we can't find a product with this features</h4>
+          <div v-if="this.products.length == 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h4>Perdón, no hemos encontrado productos en esta categoría.</h4>
           </div>
 
-            <Card :CardArray="slicedCards" />
+            <Card :CardArray="cards" />
 
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
             <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">More +</button>
@@ -82,6 +86,7 @@
 
 <script>
 import slider from './slider.vue'
+import {mapActions, mapState} from "vuex";
 import Card from './Card.vue'
 
 export default {
@@ -97,17 +102,25 @@ export default {
     }
   },
   created(){
-    this.cards = this.it
+    // this.cards = this.it
   },
   computed: {
+    ...mapState('shops', [
+      'shop',
+      'products'
+    ]),
     it(){
-    return this.$store.state.items
+    return this.shop.products.slice(0, this.showCards)
     },
     slicedCards(){
-      return this.cards.slice(0, this.showCards)
+      return this.shop.products.slice(0, this.showCards)
     }
   },
   methods: {
+    ...mapActions('shops', [
+      'setCategory',
+      'setPrice'
+    ]),
     incCardNumber() {
       return this.showCards += 6
     },
@@ -121,15 +134,19 @@ export default {
        return this.sortButton = 'DATE'
     },
     sortPrice() {
-       this.cards.sort((a, b) => a.price-b.price)
+      this.setPrice()
+       
        return this.sortButton = 'PRICE'
     },
     sortTrend() {
-       this.cards.sort((a, b) => a.type.length-b.type.length)
+       this.cards.sort((a, b) => a.category.length-b.category.length)
        return this.sortButton = 'TRENDING'
     },
     sortI(name){
-      this.cards = this.it.filter((e) => e.type.match(name) || e.color.match(name))
+      this.setCategory(name)
+      // console.log(name)
+      // this.cards = this.it.filter((e) => e.category.match(name))
+      // console.log(this.cards)
     },
     reSet() {
       return this.cards = this.it
@@ -140,7 +157,7 @@ export default {
 
 <style>
 .container.grid {
-  min-height: 60rem;
+  min-height: 65rem;
 }
 
 .container.grid a {

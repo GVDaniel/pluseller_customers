@@ -10,3 +10,13 @@ export async function getShop({commit}) {
       commit("setShop", response.data);
     }).catch(error => {console.log(error)});
 }
+
+export async function setCategory({commit, state}, name) {
+  var items = state.shop.products
+  var filter = items.filter((e) => e.category.match(name))
+  state.products = filter
+}
+
+export async function setPrice({commit, state}) {
+  state.products.sort((a, b) => a.price-b.price)
+}
