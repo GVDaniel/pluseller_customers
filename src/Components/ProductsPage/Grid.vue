@@ -9,19 +9,16 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" @click="sortDate">Fecha</a>
             <a class="dropdown-item" @click="sortPrice" >Precio</a>
-            <a class="dropdown-item" @click="sortTrend">Trending</a>
+            <a class="dropdown-item" @click="sortTrend">Popular</a>
           </div>
         </div>
       </div>
       <div class="row col-6 flex-row-reverse">
         <div class="view-button">
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATAGORIES</button>
+            <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATEGORÍAS</button>
             <div class="dropdown-menu" aria-labelledby="MenuLink">
-              <a class="dropdown-item" @click="sortI('table')">Mesas</a>
-              <a class="dropdown-item" @click="sortI('lamp')">Lamparas</a>
-              <a class="dropdown-item" @click="sortI('chair')">Sillas</a>
-              <a class="dropdown-item" @click="sortI('sofa')">Sofas</a>
+              <a v-for="item in shop.categories" v-bind:key="item.id" class="dropdown-item" @click="sortI(item.name)">{{item.name}}</a>
               <div class="dropdown-divider"></div>
               <div class="pl-3">
                 <span class="circle" style="background-color:yellow" @click="sortI('yellow')" />
@@ -50,7 +47,7 @@
                 <div v-for="category in shop.categories" v-bind:key="category.id">
                   <h6 @click="sortI(category.name)">{{ category.name }}</h6>
                 </div>
-                <br><br><br>
+                <!-- <br><br><br>
                 <h4 class="search-title">Filtrar por  +</h4>
                 <br>
                 <div class="co">
@@ -62,7 +59,7 @@
                 </div>
                 <br><br>
                 <h5>Rango de Precio</h5>
-                <slider @clicked="valueSlider"/>
+                <slider @clicked="valueSlider"/> -->
               </div>
 
             </div>
@@ -72,11 +69,9 @@
           <div v-if="this.products.length == 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h4>Perdón, no hemos encontrado productos en esta categoría.</h4>
           </div>
-
             <Card :CardArray="cards" />
-
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
-            <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">More +</button>
+            <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">Cargar Más</button>
           </div>
         </div>
       </div>
@@ -131,16 +126,15 @@ export default {
     },
     sortDate() {
        this.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
-       return this.sortButton = 'DATE'
+       return this.sortButton = 'FECHA'
     },
     sortPrice() {
       this.setPrice()
-       
-       return this.sortButton = 'PRICE'
+       return this.sortButton = 'PRECIO'
     },
     sortTrend() {
        this.cards.sort((a, b) => a.category.length-b.category.length)
-       return this.sortButton = 'TRENDING'
+       return this.sortButton = 'POPULAR'
     },
     sortI(name){
       this.setCategory(name)

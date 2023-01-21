@@ -1,6 +1,6 @@
 <template>
   <div>
-  <h6 class="pt-3 text-center">Baldar Gastrobar</h6>
+  <h6 class="pt-3 text-center">{{ shop.name }}</h6>
   <nav class="row justify-content-center" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -13,8 +13,15 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
 export default {
-  name: 'Breadc'
+  name: 'Breadc',
+  computed: {
+    ...mapState('shops', [
+      'shop',
+      'products'
+    ])
+  }
 }
 </script>
 

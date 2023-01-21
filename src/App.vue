@@ -4,7 +4,6 @@
     <router-view />
     <Newsletter v-if="$route.path != '/contact'" />
     <Footer />
-    {{ alias }}
   </div>
 </template>
 
@@ -13,7 +12,6 @@ import Header from '@/Components/Header.vue'
 import Newsletter from '@/Components/Newsletter.vue'
 import Footer from '@/Components/Footer.vue'
 import {mapActions} from "vuex";
-
 
 export default{
   name: 'app',
@@ -28,7 +26,6 @@ export default{
   mounted: function () {
   },
   created: function () {
-    console.log(this.alias)
     this.getShop(this.alias)
   },
   methods: {
@@ -38,7 +35,6 @@ export default{
   },
   watch: {
     'alias'(data) {
-      console.log(data)
       this.getShop(data)
     }
   }

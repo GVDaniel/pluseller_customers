@@ -1,10 +1,11 @@
 import axios from "axios";
 var apiAdress = process.env.VUE_APP_API;
 
-export async function getShop({commit}) {
+export async function getShop({commit, state}) {
   var shop = new URL(location.href).searchParams.get('tienda')
   var master = new URL(location.href).searchParams.get('maestro')
   var data = {'shop': shop, 'master': master}
+  state.params = data
   await axios.post(apiAdress + "/api/shop/alias/", data)
     .then(response => {
       commit("setShop", response.data);

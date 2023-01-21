@@ -1,6 +1,14 @@
 <template>
   <div class="container">
-    {{ shop.name }}
+    <div v-if="shop.incoming_order" class="alert alert-info text-left">
+      <h6><strong>{{shop.incoming_order.user_name}}</strong> Tienes una orden en camino</h6>
+      <ul>
+        <li v-for="product in shop.incoming_order.products" :key="product.id">{{ product.product_title }}. <small>{{ currencyFormat(product.product_price) }}</small></li>
+      </ul>
+      <h6><strong>Ref:</strong>#{{ shop.incoming_order.id }}</h6>
+      <h6><strong>Total:</strong> {{ currencyFormat(shop.incoming_order.total) }}</h6>
+      <h6><strong>Estado:</strong> {{ shop.incoming_order.status.name }}</h6>
+    </div>
     <transition-group name="fade" class="row" tag="div">
       <div v-for="item in products" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 pb-3" :key="item.id">
           <div class="card">
@@ -20,12 +28,12 @@
             />
             <!-- <img class="card-img-top" :src="item.img" alt="Card image cap"> -->
             <div class="overlay">
-              <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Add +</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Agregar +</button>
               <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
             </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text">${{ item.price }}</p>
+              <p class="card-text">{{ currencyFormat(item.price) }}</p>
             </div>
           </div>
       </div>
@@ -58,6 +66,9 @@ export default {
     ...mapActions('shops', [
       'getShop'
     ]),
+    currencyFormat(value){
+      return '$' + new Intl.NumberFormat('es-MX').format(value)
+    },
     addtoCart(it) {
      this.$store.commit('inCart', it)
     },

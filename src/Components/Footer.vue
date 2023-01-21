@@ -2,7 +2,8 @@
   <footer class="footer_area container">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-3">
+
+        <!-- <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-3">
           <div class="footer-widget">
             <div class="footer-title">Navigate</div>
             <ul class="list-unstyled">
@@ -35,32 +36,40 @@
               <router-link to="/products"><li>Sofas</li></router-link>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-        <div class="col-12 col-xl-6 col-lg-3 col-md-3 col-sm-12 text-left text-md-right pb-5">
+        <div class="col-12 col-xl-12 col-lg-3 col-md-3 col-sm-12 text-left text-md-right pb-5">
           <div class="footer-widget">
-            <h4>399 Crowfield Road,</h4>
-            <h4>Phoenix, Arizona 85012</h4>
-            <a href="mailto:#">asff@fdsfsdc.com</a>
-            <h6>+602-926-5809</h6>
+            <h4>{{ shop.address.address_shop.address }}</h4>
+            <h4>{{ shop.address.address_shop.city.name }}</h4>
+            <a :href="'mailto:' + shop.email">{{ shop.description.cs_email }}</a>
+            <h6>{{ shop.description.mobile_phone }}</h6>
           </div>
         </div>
 
       </div>
 
       <div class="row justify-content-between">
-        <div class="col-xl-7 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
           <div class="tiny-footer">
-            <p>Copyright © All Rights Reserved 2020 </p>
+            <p>Copyright©  {{new Date().getFullYear()}} <a target="_blank" href="http://pluseller.com">Pluseller</a> | Comercio de tu ciudad. </p>
           </div>
         </div>
-        <div class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 text-right">
+        <div class="col-6 col-xl-6 col-lg-4 col-md-4 col-sm-4 text-right">
           <div class="social-info">
-            <strong>Get social</strong>
-            <img class="twitter" src="@/assets/twitter.png">
-            <img class="pinterest" src="@/assets/pinterest.png">
-            <img class="facebook" src="@/assets/facebook.png">
-            <img class="instagram" src="@/assets/insta.png">
+            <strong>Redes Sociales</strong><br>
+            <a v-if="shop.social_networks.facebook" :href="shop.social_networks.facebook" target="_blank">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a v-if="shop.social_networks.instagram" :href="shop.social_networks.instagram" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a v-if="shop.social_networks.twitter" :href="shop.social_networks.twitter" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a v-if="shop.social_networks.pinterest" :href="shop.social_networks.pinterest" target="_blank">
+              <i class="fa-brands fa-pinterest"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -69,8 +78,15 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  computed: {
+    ...mapState('shops', [
+      'shop',
+      'products'
+    ]),
+  }
 }
 </script>
 

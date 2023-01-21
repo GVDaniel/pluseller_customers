@@ -6,8 +6,8 @@
         <!-- Newsletter Text -->
         <div class="col-12 col-lg-6">
           <div class="newsletter-text">
-            <h2>Join our Newsletter</h2>
-            <p>Nulla ac convallis lorem, eget euismod nisl. bibendum nec.</p>
+            <h2>Buzón de sugerencias</h2>
+            <p>Deja tu comentario de forma anónima.</p>
           </div>
         </div>
 
@@ -15,8 +15,8 @@
         <div class="col-12 col-lg-4">
           <div class="newsletter-form">
             <form>
-              <input class="nl-email" placeholder="Your E-mail">
-              <button class="input-button" @click.prevent="haSubmit">Submit</button>
+              <input class="nl-email" placeholder="Escribenos algo...">
+              <button class="input-button" @click.prevent="haSubmit">Enviar</button>
             </form>
           </div>
         </div>
@@ -31,7 +31,7 @@ export default {
   name: 'Newsletter',
   methods: {
     haSubmit() {
-      return alert('Thank you for subscribing')
+      return alert('Hecho!!, Gracias por tu comertario')
     }
   }
 }
@@ -42,7 +42,7 @@ export default {
 .newsletter-area {
   position: relative;
   z-index: 1;
-  background-color: #dbf0fa;
+  background-color: #e8e8e8;
   padding: 75px;
 }
 

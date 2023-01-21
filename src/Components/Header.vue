@@ -17,7 +17,7 @@
       <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
         <router-link class="pl-5" to="/">Inicio</router-link>
         <router-link class="px-5" to="/products">Productos</router-link>
-        <router-link to="/contact">Contacto</router-link>
+        <!-- <router-link to="/contact">Contacto</router-link> -->
       </span>
 
       <p class="navbar-item ml-auto">

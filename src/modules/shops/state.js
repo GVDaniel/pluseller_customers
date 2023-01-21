@@ -2,5 +2,7 @@ export default {
   preloader: false,
   alertSuccess: false,
   shop: {},
-  products: []
+  params: {},
+  products: [],
+  incoming_order: null
 };
