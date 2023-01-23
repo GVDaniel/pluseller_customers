@@ -11,7 +11,6 @@
             Tu carrito esta vacio, selecciona algún producto.
           </div>
         </transition>
-
         <transition-group name="fade">
           <div class="row" v-for="thing in cartContent" v-bind:key="thing.id">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
@@ -96,7 +95,7 @@ export default {
   computed:{
     ...mapState('shops', [
       'shop',
-      'params'
+      'params',
     ]),
     cartContent(){
       return this.$store.state.cartItems
@@ -173,6 +172,7 @@ export default {
       let self = this
       self.order.products = self.cartContent
       self.order.params = self.params
+      self.order.incoming_order = self.shop.incoming_order
 			axios.post('http://127.0.0.1:8000/api/shop/order/create',
 			{
 			_method: 'POST',

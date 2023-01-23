@@ -43,7 +43,7 @@
             <h4>{{ shop.address.address_shop.address }}</h4>
             <h4>{{ shop.address.address_shop.city.name }}</h4>
             <a :href="'mailto:' + shop.email">{{ shop.description.cs_email }}</a>
-            <h6>{{ shop.description.mobile_phone }}</h6>
+            <h6><a :href="'tel:' + shop.description.mobile_phone"> {{ shop.description.mobile_phone }}</a></h6>
           </div>
         </div>
 
