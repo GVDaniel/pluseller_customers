@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Carousel />
     <AboutUs />
   </div>
 </template>

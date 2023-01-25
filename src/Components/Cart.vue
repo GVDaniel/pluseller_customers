@@ -176,7 +176,7 @@ export default {
       self.order.products = self.cartContent
       self.order.params = self.params
       self.order.incoming_order = self.shop.incoming_order
-			axios.post('http://127.0.0.1:8000/api/shop/order/create',
+			axios.post(this.$apiAdress + '/api/shop/order/create',
 			{
 			_method: 'POST',
 			order: self.order,
@@ -192,7 +192,8 @@ export default {
           icon: 'success',
           timer: 10000,
         })
-        self.cartContent = {}
+        self.order.products = []
+        self.$store.state.cartItems = []
         self.cartON()
 			}).catch(function (error) {
 				console.log(error);

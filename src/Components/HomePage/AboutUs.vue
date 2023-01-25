@@ -2,30 +2,19 @@
   <section class="about-us">
     <div class="row p-4">
       <div class="col-6">
-        <img class="float-lg-right" src="@/assets/new.jpg">
+        <img class="float-lg-right" src="@/assets/3.png">
       </div>
       <div class="col-12 col-sm-6">
-        <h1>New minimalist<br>–components</h1>
-        <h6>Gravity will force your feet to the ground. Don’t be afraid, your mind will find your freedom.
-           You won’t miss a sunrise. You’ll rise with the sun.
-           <br>You’ll never run away from the storm. You will flow with the wind.
-           <br>Don’t hesitate to pause. Follow the flow of the moment.
-           And then, take the first step towards the new you.
+        <h1>pluseller.com </h1><br><h6><strong>Ahorra tiempo y dinero administrando tu negocio de la mejor manera.</strong></h6>
+        <h6>
+          Con nuestros paneles administrativos podrás convertir las tareas mas tediosas en simples acciones cotidianas.
+          Maneja el sistema de caja sincronizada con el stock de tus productos, revisa las métricas de ventas, 
+          facturación y nuevos clientes cada mes, descarga estos datos a tu teléfono o computadora cuando quieras, 
+          ordena tus semana con la herramienta de tareas, mantén siempre un catálogo de productos 
+          listo para enviar. Son 8 paneles que puedes disfrutar diariamente para administrar tu negocio de maera 
+          fácil y rápida.
           </h6>
-      </div>
-    </div>
-    <div class="row p-4">
-      <div class="col-12 col-sm-6 text-sm-right text-md-right ml-sm-0 ml-md-5 ml-lg-5 ml-xl-5 text-lg-right order-sm-first order-12" style="margin-right: -8%; z-index:1;">
-        <h1>Save Space<br>more freedom</h1>
-        <h6>Gravity will force your feet to the ground. Don’t be afraid, your mind will find your freedom.
-           You won’t miss a sunrise. You’ll rise with the sun.
-           You’ll never run away from the storm. You will flow with the wind.
-           Don’t hesitate to pause. Follow the flow of the moment.
-           And then, take the first step towards the new you.
-          </h6>
-      </div>
-      <div class="col-6">
-        <img src="@/assets/33.jpg">
+          <a href="http://pluseller.com" target="_blank" class="btn btn-primary" style="background-color: #ff6464; border: #ff6464;">+ Información</a>
       </div>
     </div>
   </section>

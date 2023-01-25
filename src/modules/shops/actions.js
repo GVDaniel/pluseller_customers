@@ -2,9 +2,14 @@ import axios from "axios";
 var apiAdress = process.env.VUE_APP_API;
 
 export async function getShop({commit, state}) {
-  var shop = new URL(location.href).searchParams.get('tienda')
-  var master = new URL(location.href).searchParams.get('maestro')
-  var data = {'shop': shop, 'master': master}
+  console.log(state.params.shop)
+  if (state.params.shop) {
+    var data = {'shop': state.params.shop, 'master': state.params.master}
+  } else {
+    var shop = new URL(location.href).searchParams.get('tienda')
+    var master = new URL(location.href).searchParams.get('maestro')
+    var data = {'shop': shop, 'master': master}
+  }
   state.params = data
   await axios.post(apiAdress + "/api/shop/alias/", data)
     .then(response => {

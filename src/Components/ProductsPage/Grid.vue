@@ -35,10 +35,10 @@
       <div class="row justify-content-center">
         <div class="col col-xl-3 col-lg-3 d-none d-lg-block d-xl-block">
           <img
-                style="width:100%;"
-                class="float-center img-thumbnail"
-                :src="'http://127.0.0.1:8000' + '/storage/assets/img/brand/profile/' + '11598576314.jpeg'"
-              />
+            style="width:100%;"
+            class="float-center img-thumbnail"
+            :src="this.$apiAdress + '/storage/assets/img/brand/profile/' + shop.description.profile_image"
+          />
           <div class="card-selector">
             <div class="card-body p-5">
               <div class="search-title">

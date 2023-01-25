@@ -5,6 +5,8 @@ import store from './store';
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
+Vue.prototype.$apiAdress = process.env.VUE_APP_API
+
 const options = {
   confirmButtonColor: '#41b882',
   cancelButtonColor: '#ff7674',
