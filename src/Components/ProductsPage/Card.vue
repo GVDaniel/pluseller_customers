@@ -48,7 +48,7 @@
             <!-- <img class="card-img-top" :src="item.img" alt="Card image cap"> -->
             <div class="overlay">
               <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Agregar +</button>
-              <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
+              <!-- <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link> -->
             </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.title }}</h5>
@@ -90,7 +90,16 @@ export default {
       return '$' + new Intl.NumberFormat('es-MX').format(value)
     },
     addtoCart(it) {
-     this.$store.commit('inCart', it)
+      this.$store.commit('inCart', it)
+      this.$swal({
+        toast: true,
+        position: 'center',
+        title: 'Genial',
+        text: 'Producto agregado al carrito',
+        showConfirmButton: false,
+        icon: 'success',
+        timer: 10000,
+      })
     },
     sendInfo(it) {
      this.$store.commit('addtoInfo', it)

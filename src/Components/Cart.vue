@@ -51,7 +51,8 @@
               <label class="label" for="Comentario">Comentario</label>
             </div>
             <div class="form-group">
-              <button 
+              <button
+                :disabled="disabled"
                 type="submit"
                 style="background-color: #ff6464; 
                 border-color: #ff6464; 
@@ -80,6 +81,7 @@ export default {
   data() {
     return {
       cClass: 'cart',
+      disabled: false,
       modalClass: 'modal off',
       order: {
         products: [],
@@ -172,6 +174,7 @@ export default {
       this.storeOrder(this.order)
     },
     storeOrder () {
+      this.disabled = true
       let self = this
       self.order.products = self.cartContent
       self.order.params = self.params
@@ -195,6 +198,7 @@ export default {
         self.order.products = []
         self.$store.state.cartItems = []
         self.cartON()
+        self.disabled = false
 			}).catch(function (error) {
 				console.log(error);
 			});

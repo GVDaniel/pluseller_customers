@@ -20,12 +20,12 @@
             <div class="dropdown-menu" aria-labelledby="MenuLink">
               <a v-for="item in shop.categories" v-bind:key="item.id" class="dropdown-item" @click="sortI(item.name)">{{item.name}}</a>
               <div class="dropdown-divider"></div>
-              <div class="pl-3">
+              <!-- <div class="pl-3">
                 <span class="circle" style="background-color:yellow" @click="sortI('yellow')" />
                 <span class="circle" style="background-color:blue" @click="sortI('blue')"  />
                 <span class="circle" style="background-color:white" @click="sortI('white')" />
                 <span class="circle" style="background-color:red" @click="sortI('red')" />
-              </div>
+              </div> -->
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" @click="reSet">Limpiar</a>
             </div>
