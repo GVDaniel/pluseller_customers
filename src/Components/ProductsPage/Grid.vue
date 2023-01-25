@@ -37,7 +37,7 @@
           <img
             style="width:100%;"
             class="float-center img-thumbnail"
-            :src="this.$apiAdress + '/storage/assets/img/brand/profile/' + shop.description.profile_image"
+            :src="this.$apiAdress + '/assets/img/brand/profile/' + shop.description.profile_image"
           />
           <div class="card-selector">
             <div class="card-body p-5">
