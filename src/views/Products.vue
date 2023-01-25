@@ -15,9 +15,7 @@ export default {
     Breadc, Grid
   },
   mounted: function () {
-    var alias = this.$route.params.alias
-    console.log(alias)
-    this.getShop(alias)
+    this.getShop()
   },
   methods: {
     ...mapActions('shops', [

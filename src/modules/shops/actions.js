@@ -11,7 +11,7 @@ export async function getShop({commit, state}) {
     var data = {'shop': shop, 'master': master}
   }
   state.params = data
-  await axios.post(apiAdress + "/api/shop/alias/", data)
+  await axios.post(apiAdress + "/api/shop/alias", data)
     .then(response => {
       commit("setShop", response.data);
     }).catch(error => {console.log(error)});
