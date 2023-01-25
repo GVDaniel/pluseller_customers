@@ -19,7 +19,7 @@ export async function getShop({commit, state}) {
 
 export async function setCategory({commit, state}, name) {
   var items = state.shop.products
-  var filter = items.filter((e) => e.category.match(name))
+  var filter = items.filter((e) => e.category_x.match(name))
   state.products = filter
 }
 
