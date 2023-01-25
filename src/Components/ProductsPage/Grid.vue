@@ -133,7 +133,7 @@ export default {
        return this.sortButton = 'PRECIO'
     },
     sortTrend() {
-       this.cards.sort((a, b) => a.category_x.length-b.category_x.length)
+       this.cards.sort((a, b) => a.category.name.length-b.category.name.length)
        return this.sortButton = 'POPULAR'
     },
     sortI(name){
