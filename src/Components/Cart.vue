@@ -72,7 +72,7 @@
 
 <script>
 import { validate } from "json-schema";
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 import axios from "axios";
 
 export default {
@@ -105,6 +105,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions('shops', [
+      'getShop',
+    ]),
     currencyFormat(value){
       return '$' + new Intl.NumberFormat('es-MX').format(value)
     },
@@ -179,6 +182,7 @@ export default {
 			order: self.order,
 			})
 			.then(function (response) {
+        self.getShop()
         self.$swal({
           toast: true,
           position: 'center',
@@ -192,8 +196,15 @@ export default {
         self.cartON()
 			}).catch(function (error) {
 				console.log(error);
-			 });
+			});
     },
+  },
+  watch: {
+    "shop.incoming_order"(data) {
+      console.log('watch', data)
+      this.order.customer.name = data.user_name
+      this.order.customer.phone = data.user_phone
+    }
   }
 }
 </script>

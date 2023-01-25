@@ -1,13 +1,32 @@
 <template>
   <div class="container">
     <div v-if="shop.incoming_order" class="alert alert-info text-left">
-      <h6><strong>{{shop.incoming_order.user_name}}</strong> Tienes una orden en camino</h6>
+      <h6>
+        <strong>{{shop.incoming_order.user_name}}</strong> Tienes una orden abierta 
+        <button v-if="opOrder == false" @click="openOrder()" class="btn btn-dark">
+          <small>
+            <i class="fas fa-eye"></i> Ver
+          </small>
+        </button>
+        <button v-if="opOrder == true" @click="openOrder()" class="btn btn-light">
+          <small>
+            <i class="fas fa-eye-slash"></i> Ocultar
+          </small>
+        </button>
+      </h6>
+    </div>
+    <div v-if="opOrder" class="alert alert-light">
       <ul>
-        <li v-for="product in shop.incoming_order.products" :key="product.id">{{ product.product_title }}. <small>{{ currencyFormat(product.product_price) }}</small></li>
+        <li v-for="product in shop.incoming_order.products" :key="product.id">{{ product.product_title }}. <small>{{ currencyFormat(product.product_price) }} </small> <span v-if="product.status_id == 8" class="badge badge-warning"> en espera</span></li>
       </ul>
       <h6><strong>Ref:</strong>#{{ shop.incoming_order.id }}</h6>
       <h6><strong>Total:</strong> {{ currencyFormat(shop.incoming_order.total) }}</h6>
       <h6><strong>Estado:</strong> {{ shop.incoming_order.status.name }}</h6>
+      <button v-if="opOrder == true" @click="openOrder()" class="btn btn-light">
+        <small>
+          <i class="fas fa-eye-slash"></i> Ocultar
+        </small>
+      </button>
     </div>
     <transition-group name="fade" class="row" tag="div">
       <div v-for="item in products" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 pb-3" :key="item.id">
@@ -51,6 +70,7 @@ export default {
   data() {
     return {
       items: [],
+      opOrder: false
     }
   },
   computed: {
@@ -74,6 +94,13 @@ export default {
     },
     sendInfo(it) {
      this.$store.commit('addtoInfo', it)
+    },
+    openOrder() {
+      if (this.opOrder == false) {
+        this.opOrder = true
+      } else {
+        this.opOrder = false
+      }
     }
   },
   // watch: {

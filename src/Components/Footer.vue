@@ -38,10 +38,9 @@
           </div>
         </div> -->
 
-        <div class="col-12 col-xl-12 col-lg-3 col-md-3 col-sm-12 text-left text-md-right pb-5">
+        <div class="col-xl-12 col-lg-3 col-md-12 col-xs-12 text-md-center text-xl-right text-sm-center pb-5">
           <div class="footer-widget">
-            <h4>{{ shop.address.address_shop.address }}</h4>
-            <h4>{{ shop.address.address_shop.city.name }}</h4>
+            <h4>{{ shop.address.address_shop.address }} / {{ shop.address.address_shop.city.name }}</h4>
             <a :href="'mailto:' + shop.email">{{ shop.description.cs_email }}</a>
             <h6><a :href="'tel:' + shop.description.mobile_phone"> {{ shop.description.mobile_phone }}</a></h6>
           </div>
