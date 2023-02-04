@@ -14,7 +14,22 @@
         <transition-group name="fade">
           <div class="row" v-for="thing in cartContent" v-bind:key="thing.id">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-              <img :src="thing.img" style="width: 90px;">
+              <img
+                v-if="thing.images && thing.images.length > 0"
+                class="card-img-top"
+                style="width: 90px;"
+                :src="'http://api.negociaar.com/assets/img/products/' + thing.images[0].name"
+                alt="pluseller.blank.png"
+              />
+              <img
+                v-else
+                class="card-img-top"
+                :src="
+                  apiUrl + 'http://api.negociaar.com/assets/img/products/blank_product.png'
+                "
+                style="width: 90px;"
+                alt="blank_product.png"
+              />
             </div>
             <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
               <h6>{{ thing.title }}</h6>

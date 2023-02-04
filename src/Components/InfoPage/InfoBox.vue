@@ -2,14 +2,27 @@
   <div>
     <div class="row mb-5" v-for="it in information" :key="it.id">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-        <img class="img-fluid" :src="it.img">
+        <img
+          v-if="it.images && it.images.length > 0"
+          class="img-fluid"
+          :src="'http://api.negociaar.com/assets/img/products/' + it.images[0].name"
+          alt="pluseller.blank.png"
+        />
+        <img
+          v-else
+          class="img-fluid"
+          :src="
+            apiUrl + 'http://api.negociaar.com/assets/img/products/blank_product.png'
+          "
+          alt="blank_product.png"
+        />
       </div>
 
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex align-items-center justify-content-start">
         <div class="info pt-xl-0 pt-lg-0 pt-5">
-          <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 reviews</h6>
+          <!-- <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 reviews</h6> -->
           <h1 class="font-weight-bold text-uppercase pt-3">{{ it.title }}</h1>
-          <h4>${{ it.price }}</h4>
+          <h4>${{ formatPrice(it.price) }}</h4>
           <br><br><br>
           <div class="control number text-center">
             <button class="decrement-button" @click="dec" style="border-right: 0.2px solid lightgrey;float:left;margin-right: 11px;">−</button>
@@ -17,7 +30,7 @@
             <button class="increment-button" @click="inc" style="border-left: 0.2px solid lightgrey;margin-left: 16px;">+</button>
             <br><br>
           </div>
-          <button class="add-to-cart-button" @click="addtoCart(it, it.id)">ADD TO CART</button>
+          <button class="add-to-cart-button" style="background-color: #ff6464; border-color:#ff6464" @click="addtoCart(it, it.id)">AGREGAR +</button>
         </div>
       </div>
     </div>
@@ -47,6 +60,10 @@ export default {
         this.$store.commit('inCart', it, id)
       }
     },
+    formatPrice(value) {
+      let val = (value/1).toFixed(2).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    }, 
   }
 }
 

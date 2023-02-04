@@ -176,6 +176,7 @@ form .btn-xl.btn-success.mt-3 {
     bottom: 1rem;
 }
 
+
 .bag img {
   cursor: pointer;
   width: 30px;

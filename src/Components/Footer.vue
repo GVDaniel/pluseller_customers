@@ -1,4 +1,5 @@
 <template>
+  <div>
   <footer class="footer_area container">
     <div class="container">
       <div class="row justify-content-between">
@@ -73,18 +74,36 @@
         </div>
       </div>
     </div>
+    <div class="bag" @click="openCart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="mb-3 bg-success"  v-if="this.bagItemscount > 0">{{ bagItemscount }}</span>
+    </div>
   </footer>
+  <Cart ref="cartMove" />
+  </div>
 </template>
 
 <script>
 import {mapState} from "vuex";
+import Cart from '@/Components/Cart.vue'
 export default {
   name: 'Footer',
+  components: {
+    Cart
+  },
   computed: {
     ...mapState('shops', [
       'shop',
       'products'
     ]),
+    bagItemscount() {
+      return this.$store.getters.itemsNumber
+    }
+  },
+  methods: {
+    openCart() {
+      this.$refs.cartMove.cartON()
+    }
   }
 }
 </script>
@@ -122,5 +141,31 @@ export default {
 .social-info>img:hover {
   opacity: 0.7;
 }
+.bag {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  background-color: #ff6464;
+  padding: 15px;
+  border-radius: 100%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 7px 10px 23px -6px rgba(0,0,0,0.42);
+}
+
+.bag span {
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    font-size: 15px;
+    line-height: 1;
+    padding: 2px 3px 3px 3px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin-left: -9px;
+    bottom: 1rem;
+}
+
 
 </style>

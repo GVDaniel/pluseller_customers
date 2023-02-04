@@ -48,7 +48,7 @@
             <!-- <img class="card-img-top" :src="item.img" alt="Card image cap"> -->
             <div class="overlay">
               <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Agregar +</button>
-              <!-- <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link> -->
+              <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
             </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.title }}</h5>
@@ -98,7 +98,7 @@ export default {
         text: 'Producto agregado al carrito',
         showConfirmButton: false,
         icon: 'success',
-        timer: 10000,
+        timer: 2000,
       })
     },
     sendInfo(it) {

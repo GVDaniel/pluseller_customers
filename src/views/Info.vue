@@ -3,7 +3,7 @@
 
     <InfoBreadcrumb :information="information"/>
     <InfoBox :information="information"/>
-    <InfoText />
+    <InfoText :information="information" />
 
     <div class="related-item">
       <hr>
