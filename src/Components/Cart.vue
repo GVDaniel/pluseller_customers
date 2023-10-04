@@ -18,14 +18,14 @@
                 v-if="thing.images && thing.images.length > 0"
                 class="card-img-top"
                 style="width: 90px;"
-                :src="'http://api.negociaar.com/assets/img/products/' + thing.images[0].name"
+                :src="'http://api.pluseller.com/assets/img/products/' + thing.images[0].name"
                 alt="pluseller.blank.png"
               />
               <img
                 v-else
                 class="card-img-top"
                 :src="
-                  apiUrl + 'http://api.negociaar.com/assets/img/products/blank_product.png'
+                  apiUrl + 'http://api.pluseller.com/assets/img/products/blank_product.png'
                 "
                 style="width: 90px;"
                 alt="blank_product.png"

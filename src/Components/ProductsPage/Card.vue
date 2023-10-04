@@ -34,14 +34,14 @@
             <img
               v-if="item.images && item.images.length > 0"
               class="card-img-top"
-              :src="'http://api.negociaar.com/assets/img/products/' + item.images[0].name"
+              :src="'http://api.pluseller.com/assets/img/products/' + item.images[0].name"
               alt="pluseller.blank.png"
             />
             <img
               v-else
               class="card-img-top"
               :src="
-                apiUrl + 'http://api.negociaar.com/assets/img/products/blank_product.png'
+                apiUrl + 'http://api.pluseller.com/assets/img/products/blank_product.png'
               "
               alt="blank_product.png"
             />

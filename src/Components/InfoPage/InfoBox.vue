@@ -5,14 +5,14 @@
         <img
           v-if="it.images && it.images.length > 0"
           class="img-fluid"
-          :src="'http://api.negociaar.com/assets/img/products/' + it.images[0].name"
+          :src="'http://api.pluseller.com/assets/img/products/' + it.images[0].name"
           alt="pluseller.blank.png"
         />
         <img
           v-else
           class="img-fluid"
           :src="
-            apiUrl + 'http://api.negociaar.com/assets/img/products/blank_product.png'
+            apiUrl + 'http://api.pluseller.com/assets/img/products/blank_product.png'
           "
           alt="blank_product.png"
         />
